@@ -1,9 +1,10 @@
-// about: main script file for the extension
+// about: main script file for focusModeYT
 // author: Cesar Carrillo
 
 // TODO: make print message more detailed
 function onError() { console.log("error in the code"); }
 
+// search youtube videos using duckduckgo
 function altSearch()
 {
     const text = document.getElementById("ytsearch").value;
@@ -19,7 +20,7 @@ function runScript(value)
 
     // title and search inputs
     const domSearch = `<center>
-                            <h1>YouTube Focus Mode</h1>
+                            <h1 style="font-size: 30px;">YouTube Focus Mode</h1>
                             <input placeholder="search on youtube" type="text" id="ytsearch">
                             <input id="ytsearchbtn" type="button" value="Search">
                         </center><br><br>`;
@@ -27,7 +28,8 @@ function runScript(value)
     const domAbout = `  <center>
                             <br>
                             <form action="https://github.com/cucarrillo/focus-mode-yt">
-                                <input type="submit" value="code"> 
+                                <input type="submit" value="github repo">
+                                <p style="font-size: 12px;">created by Cesar Carrillo</p> 
                             </form>
                         </center>`;
 
@@ -45,7 +47,7 @@ function runScript(value)
         // get the video ID and implement the embedded video
         const videoID = window.location.search.replace("?v=", "");
         const domVideo = ` <center>
-                                <iframe style="width: 75%; height: 500px;"
+                                <iframe style="width: 1280px; height: 720px;"
                                     src="https://www.youtube-nocookie.com/embed/${videoID}?rel=0" 
                                     allow="" allowfullscreen>
                                 </iframe>

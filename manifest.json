@@ -7,7 +7,7 @@
     "description": "",
     "icons": { "48": "icons/icon-48x48.png" },
     
-    "permissions": [ "storage" ],
+    "permissions": [ "storage", "activeTab" ],
 
     "content_scripts": [
         {

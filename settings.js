@@ -8,6 +8,14 @@ function updateDisabledCB(disabled)
     {
         document.getElementById("cbDisabled").click();
     }
+    
+    // create event listener for the checkbox
+    // updates the new setting & refreshes the page
+    cbDisabled.addEventListener("click", function(event)
+    {
+        browser.storage.local.set({"enableDisable": cbDisabled.checked});
+        browser.tabs.executeScript({code: "location.reload();"});
+    }, false);
 }
 
 // TODO: make print message more detailed
@@ -16,17 +24,8 @@ function onError() { console.log("error in the code"); }
 // main function
 function main()
 {
-    // checkbox variables
-    var cbDisabled = document.getElementById("cbDisabled");
-
-    // match checkboxs with active settings
+    // update checkbox with the local storage
     browser.storage.local.get("enableDisable").then(updateDisabledCB, onError);
-
-    // create event listeners for the checkboxes
-    cbDisabled.addEventListener("change", function(event)
-    {
-        browser.storage.local.set({"enableDisable": cbDisabled.checked });
-    }, false);
 }
 
-document.onload = main(); // init
+main(); // init
